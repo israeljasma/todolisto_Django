@@ -7,3 +7,10 @@ class Tarea(models.Model):
     descripcion = models.CharField(max_length = 255)
     usuario = models.ForeignKey(User, on_delete = models.CASCADE)
     fechaInicio = models.DateField("%d-%m-%Y")
+    fechaTermino = models.DateField("%d-%m-%Y", null=True, blank=True)
+
+class EstadoTarea(models.Model):
+    Estado = models.CharField(max_length = 255)
+
+class TipoTarea(models.Model):
+    Tipo = models.CharField(max_length = 255)
