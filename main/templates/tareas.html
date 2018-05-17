@@ -1,50 +1,57 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} 
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        
-        <div class="col-4">
-            Formulario
-            <div>
-                <form action={% url 'crear_tarea' %} method="POST">
-                    {% csrf_token %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="row">
+                <div class="col-lg-4">
                     <div>
-                        <label for="titulo">titulo</label>
-                        <input type="text" name="titulo_tarea" required>
+                        <form action={% url 'crear_tarea' %} method="POST">
+                            {% csrf_token %}
+                            <h3 class="tile-title">Formulario</h3>
+                            <div class="form-group">
+                                <label for="titulo">Titulo</label>
+                                <input class="form-control" name="titulo_tarea" id="exampleInputEmail1" type="text" aria-describedby="emailHelp" required>
+                                <!-- <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone else.</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion</label>
+                                <textarea class="form-control" name="descripcion_tarea" id="exampleTextarea" rows="3" required></textarea>
+                            </div>
+                            <div class="tile-footer">
+                                <button class="btn btn-primary" type="submit">Crear</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
+                <div class="col-lg-8">
                     <div>
-                        <label for="descripcion">descripcion</label>
-                        <input type="text" name="descripcion_tarea" required>
+                        <h3 class="tile-title">Listado de Tareas</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for t in tareas %}
+                                    <tr>
+                                        <td>{{ t.titulo }}</td>
+                                        <td>{{ t.descripcion }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <div class="button">
-                        <button type="submit">Crear</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-
-        <div class="col-8">
-            listado Tareas
-            <table class="table">
-                <tr>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
-                </tr>
-                {% for t in tareas %}
-                <tr>
-                    <td>{{ t.titulo }}</td>
-                    <td>{{ t.descripcion }}</td>
-                </tr>
-                {% endfor %}
-
-            </table>
 
         </div>
-
     </div>
-
 </div>
-
 {% endblock content %}
