@@ -6,3 +6,4 @@ class Tarea(models.Model):
     titulo = models.CharField(max_length = 255)
     descripcion = models.CharField(max_length = 255)
     usuario = models.ForeignKey(User, on_delete = models.CASCADE)
+    fechaInicio = models.DateField("%d-%m-%Y")
