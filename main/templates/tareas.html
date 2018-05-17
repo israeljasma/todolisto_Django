@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-4">
+            Formulario
+            <div>
+                <form action={% url 'crear_tarea' %} method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <label for="titulo">titulo</label>
+                        <input type="text" name="titulo_tarea" required>
+                    </div>
+                    <div>
+                        <label for="descripcion">descripcion</label>
+                        <input type="text" name="descripcion_tarea" required>
+                    </div>
+                    <div class="button">
+                        <button type="submit">Crear</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-8">
+            listado Tareas
+            <table class="table">
+                <tr>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                </tr>
+                {% for t in tareas %}
+                <tr>
+                    <td>{{ t.titulo }}</td>
+                    <td>{{ t.descripcion }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}
