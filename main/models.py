@@ -8,9 +8,15 @@ class Tarea(models.Model):
     usuario = models.ForeignKey(User, on_delete = models.CASCADE)
     fechaInicio = models.DateField("%d-%m-%Y")
     fechaTermino = models.DateField("%d-%m-%Y", null=True, blank=True)
+    def __str__(self):
+        return (self.titulo)
 
 class EstadoTarea(models.Model):
     Estado = models.CharField(max_length = 255)
+    def __str__(self):
+        return (self.Estado)
 
 class TipoTarea(models.Model):
     Tipo = models.CharField(max_length = 255)
+    def __str__(self):
+        return (self.Tipo)
