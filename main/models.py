@@ -8,6 +8,7 @@ class Tarea(models.Model):
     usuario = models.ForeignKey(User, on_delete = models.CASCADE)
     fechaInicio = models.DateField("%d-%m-%Y")
     fechaTermino = models.DateField("%d-%m-%Y", null=True, blank=True)
+    estadoTarea = models.ForeignKey('EstadoTarea', on_delete = models.DO_NOTHING)
     def __str__(self):
         return (self.titulo)
 
