@@ -13,9 +13,9 @@ class Tarea(models.Model):
         return (self.titulo)
 
 class EstadoTarea(models.Model):
-    Estado = models.CharField(max_length = 255)
+    estado = models.CharField(max_length = 255)
     def __str__(self):
-        return (self.Estado)
+        return (self.estado)
 
 class TipoTarea(models.Model):
     Tipo = models.CharField(max_length = 255)
