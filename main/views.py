@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Tarea
+from .models import Tarea, EstadoTarea
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 import time
@@ -12,8 +12,10 @@ def index(request):
 @login_required()
 def tareas(request):
     tareas = Tarea.objects.filter(usuario=request.user)
+    estadoTarea = EstadoTarea.objects.all()
+    context = {'tareas' : tareas, 'estadoTarea' : estadoTarea}
     # tareas = Tarea.objects.all()
-    return render(request, 'tareas.html', {'tareas' : tareas })
+    return render(request, 'tareas.html', context=context)
 
 @login_required()
 def crear_tarea(request):
