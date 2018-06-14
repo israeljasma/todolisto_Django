@@ -21,9 +21,9 @@
                                 <textarea class="form-control" name="descripcion_tarea" id="exampleTextarea" rows="3" required></textarea>
                             </div>
                             <div>
-                                <select class="form-control" id="exampleSelect1">
+                                <select class="form-control"name='estadoT' id="exampleSelect1">
                                     {% for e in estadoTarea %}
-                                    <option>{{e.estado}}</option>
+                                    <option value={{e.pk}} >{{e.estado}}</option>
                                     {% endfor %}
                                   </select>
                             </div>
