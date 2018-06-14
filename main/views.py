@@ -25,5 +25,6 @@ def crear_tarea(request):
         tarea.descripcion = request.POST.get('descripcion_tarea')
         tarea.usuario = request.user
         tarea.fechaInicio = time.strftime("%Y-%m-%d")
+        tarea.estadoTarea = EstadoTarea.objects.get(pk=request.POST.get('estadoT'))
         tarea.save()
     return redirect('tareas')
