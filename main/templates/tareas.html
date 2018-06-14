@@ -46,6 +46,7 @@
                                         <th>Estado</th>
                                         <th>Fecha de inicio</th>
                                         <th>Fecha de termino</th>
+                                        <th><center>Acciones </center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,6 +57,7 @@
                                         <td>{{ t.estadoTarea }}</td>
                                         <td>{{ t.fechaInicio }}</td>
                                         <td>{{ t.fechaTermino }}</td>
+                                        <td><center><a href="#"><button class="btn btn-primary" type="button">Editar</button></a> / <a href="#"><button class="btn btn-danger" type="button">Eliminar</button></a></center></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
