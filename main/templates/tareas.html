@@ -19,7 +19,7 @@
                                 <textarea class="form-control" name="descripcion_tarea" id="exampleTextarea" rows="3" required></textarea>
                             </div>
                             <div>
-                                <select class="form-control" name='estadoT' id="exampleSelect1">
+                                <select class="form-control" name='estadoT' id="exampleSelect1" required>
                                     <option value="" selected disabled hidden>Seleccione un opcion</option>
                                     {% for e in estadoTarea %}
                                     <option value={{e.pk}}>{{e.estado}}</option>
