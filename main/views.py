@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect
-from .models import Tarea, EstadoTarea
+from .models import User, Tarea, EstadoTarea
+from .forms import RegistroForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 import time
 
 # Create your views here.
+class RegistroUsuario(CreateView):
+    model = User
+    template_name = 'registration/registro.html'
+    form_class = RegistroForm
+    success_url = reverse_lazy('login')
+
 @login_required()
 def index(request):
     return render(request, 'home.html')
