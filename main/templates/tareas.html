@@ -1,6 +1,4 @@
-{% extends 'base2.html'%} 
-
-{% block content %}
+{% extends 'base2.html'%} {% block content %}
 
 <div class="row">
     <div class="col-md-12">
@@ -21,12 +19,12 @@
                                 <textarea class="form-control" name="descripcion_tarea" id="exampleTextarea" rows="3" required></textarea>
                             </div>
                             <div>
-                                <select class="form-control"name='estadoT' id="exampleSelect1">
-                                    <option value="" selected disabled hidden>Seleccione un opcion</option>    
+                                <select class="form-control" name='estadoT' id="exampleSelect1">
+                                    <option value="" selected disabled hidden>Seleccione un opcion</option>
                                     {% for e in estadoTarea %}
-                                    <option value={{e.pk}} >{{e.estado}}</option>
+                                    <option value={{e.pk}}>{{e.estado}}</option>
                                     {% endfor %}
-                                  </select>
+                                </select>
                             </div>
                             <div class="tile-footer">
                                 <button class="btn btn-primary" type="submit">Crear</button>
@@ -41,23 +39,54 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th><center>Titulo</center></th>
-                                        <th><center>Descripcion</center></th>
-                                        <th><center>Estado</center></th>
-                                        <th><center>Fecha de inicio</center></th>
-                                        <th><center>Fecha de termino</center></th>
-                                        <th><center>Acciones </center></th>
+                                        <th>
+                                            <center>Titulo</center>
+                                        </th>
+                                        <th>
+                                            <center>Descripcion</center>
+                                        </th>
+                                        <th>
+                                            <center>Estado</center>
+                                        </th>
+                                        <th>
+                                            <center>Fecha de inicio</center>
+                                        </th>
+                                        <th>
+                                            <center>Fecha de termino</center>
+                                        </th>
+                                        <th>
+                                            <center>Acciones </center>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for t in tareas %}
                                     <tr>
-                                        <td><center>{{ t.titulo }}</center></td>
-                                        <td><center>{{ t.descripcion }}</center></td>
-                                        <td><center>{{ t.estadoTarea }}</center></td>
-                                        <td><center>{{ t.fechaInicio }}</center></td>
-                                        <td><center>{{ t.fechaTermino }}</center></td>
-                                        <td><center><a href="#"><button class="btn btn-primary" type="button">Editar</button></a> / <a href="#"><button class="btn btn-danger" type="button">Eliminar</button></a></center></td>
+                                        <td>
+                                            <center>{{ t.titulo }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ t.descripcion }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ t.estadoTarea }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ t.fechaInicio }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ t.fechaTermino }}</center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <a href="#">
+                                                    <button class="btn btn-primary" type="button">Editar</button>
+                                                </a> /
+                                                <a href="{% url 'eliminar_tarea' t.pk %}">
+                                                    <button class="btn btn-danger" type="button">Eliminar</button>
+                                                </a>
+                                            </center>
+                                        </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
