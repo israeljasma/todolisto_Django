@@ -22,6 +22,7 @@
                             </div>
                             <div>
                                 <select class="form-control"name='estadoT' id="exampleSelect1">
+                                    <option value="" selected disabled hidden>Seleccione un opcion</option>    
                                     {% for e in estadoTarea %}
                                     <option value={{e.pk}} >{{e.estado}}</option>
                                     {% endfor %}
