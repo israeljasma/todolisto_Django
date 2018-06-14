@@ -28,3 +28,9 @@ def crear_tarea(request):
         tarea.estadoTarea = EstadoTarea.objects.get(pk=request.POST.get('estadoT'))
         tarea.save()
     return redirect('tareas')
+
+@login_required()
+def eliminar_tarea(request, pk):
+    tarea = Tarea.objects.get(pk=pk)
+    tarea.delete()
+    return redirect('tareas')
