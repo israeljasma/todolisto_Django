@@ -41,22 +41,22 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Titulo</th>
-                                        <th>Descripcion</th>
-                                        <th>Estado</th>
-                                        <th>Fecha de inicio</th>
-                                        <th>Fecha de termino</th>
+                                        <th><center>Titulo</center></th>
+                                        <th><center>Descripcion</center></th>
+                                        <th><center>Estado</center></th>
+                                        <th><center>Fecha de inicio</center></th>
+                                        <th><center>Fecha de termino</center></th>
                                         <th><center>Acciones </center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for t in tareas %}
                                     <tr>
-                                        <td>{{ t.titulo }}</td>
-                                        <td>{{ t.descripcion }}</td>
-                                        <td>{{ t.estadoTarea }}</td>
-                                        <td>{{ t.fechaInicio }}</td>
-                                        <td>{{ t.fechaTermino }}</td>
+                                        <td><center>{{ t.titulo }}</center></td>
+                                        <td><center>{{ t.descripcion }}</center></td>
+                                        <td><center>{{ t.estadoTarea }}</center></td>
+                                        <td><center>{{ t.fechaInicio }}</center></td>
+                                        <td><center>{{ t.fechaTermino }}</center></td>
                                         <td><center><a href="#"><button class="btn btn-primary" type="button">Editar</button></a> / <a href="#"><button class="btn btn-danger" type="button">Eliminar</button></a></center></td>
                                     </tr>
                                     {% endfor %}
