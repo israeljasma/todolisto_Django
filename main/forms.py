@@ -1,5 +1,8 @@
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from models import Tarea
+import time
 
 class RegistroForm(UserCreationForm):
     class Meta:
@@ -16,3 +19,14 @@ class RegistroForm(UserCreationForm):
             'last_name': 'Apellido',
             'email': 'Email',
         }
+
+class TareaCreateForm(forms.ModelForm):
+    titulo = forms.CharField()
+    descripcion = forms.CharField()
+    usuario = User
+    fechaInicio = time.strftime("%Y-%m-%d")
+    fechaTermino = forms.DateField()
+
+    class Meta:
+            model = Tarea
+            fields = ('titulo', 'descripcion', 'fechaTermino')
