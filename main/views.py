@@ -54,12 +54,6 @@ def crear_tarea(request):
         tarea.save()
     return redirect('tareas')
 
-# @login_required()
-# def eliminar_tarea(request, pk):
-#     tarea = Tarea.objects.get(pk=pk)
-#     tarea.delete()
-#     return redirect('tareas')
-
 @login_required()
 def actualizarTarea(request, pk):
     tarea = Tarea.objects.get(pk=pk)
