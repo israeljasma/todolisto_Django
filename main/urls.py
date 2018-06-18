@@ -11,5 +11,5 @@ urlpatterns = [
     path('crear_tarea', views.crear_tarea, name='crear_tarea'),
     path('<int:pk>', views.eliminar_tarea, name='eliminar_tarea'),
     path('registrar', views.RegistroUsuario.as_view(), name='registrar'),
-    path('editar_tarea', views.TareaUpdate.as_view(), name='editar_tarea'),
+    path('editar_tarea/<int:pk>', views.TareaUpdate.as_view(), name='editar_tarea'),
 ]
