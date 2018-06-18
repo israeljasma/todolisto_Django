@@ -3,9 +3,13 @@ from .models import User, Tarea, EstadoTarea
 from .forms import RegistroForm, TareaUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 import time
+
+#decorators
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 class RegistroUsuario(CreateView):
@@ -18,6 +22,12 @@ class TareaUpdate(UpdateView):
     model = Tarea
     form_class = TareaUpdateForm
     template_name = 'editar_tarea.html'
+    success_url = reverse_lazy('tareas')
+
+@method_decorator(login_required, name='get')
+class TareaDelete(DeleteView):
+    model = Tarea
+    template_name = 'tareas.html'
     success_url = reverse_lazy('tareas')
 
 @login_required()
@@ -44,11 +54,11 @@ def crear_tarea(request):
         tarea.save()
     return redirect('tareas')
 
-@login_required()
-def eliminar_tarea(request, pk):
-    tarea = Tarea.objects.get(pk=pk)
-    tarea.delete()
-    return redirect('tareas')
+# @login_required()
+# def eliminar_tarea(request, pk):
+#     tarea = Tarea.objects.get(pk=pk)
+#     tarea.delete()
+#     return redirect('tareas')
 
 @login_required()
 def actualizarTarea(request, pk):
