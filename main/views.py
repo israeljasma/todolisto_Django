@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import User, Tarea, EstadoTarea
-from .forms import RegistroForm
+from .forms import RegistroForm, TareaUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 import time
 
@@ -13,6 +13,12 @@ class RegistroUsuario(CreateView):
     template_name = 'registration/registro.html'
     form_class = RegistroForm
     success_url = reverse_lazy('login')
+
+class TareaUpdate(UpdateView):
+    model = Tarea
+    form_class = TareaUpdateForm
+    template_name = 'editar_tarea.html'
+    success_url = reverse_lazy('tareas')
 
 @login_required()
 def index(request):
