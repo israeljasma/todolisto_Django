@@ -49,3 +49,15 @@ def eliminar_tarea(request, pk):
     tarea = Tarea.objects.get(pk=pk)
     tarea.delete()
     return redirect('tareas')
+
+@login_required()
+def actualizarTarea(request, pk):
+    tarea = Tarea.objects.get(pk=pk)
+    if request.method == 'GET':
+        form = TareaUpdateForm(instance=tarea)
+    else:
+        form = TareaUpdateForm(request.POST, instance=tarea)
+        if form.is_valid():
+            form.save()
+        return redirect('tareas')
+    return render(request, 'editar_tarea.html', {'form':form})
