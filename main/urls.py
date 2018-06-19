@@ -13,4 +13,5 @@ urlpatterns = [
     path('registrar', views.RegistroUsuario.as_view(), name='registrar'),
     # path('editar_tarea/<int:pk>', views.TareaUpdate.as_view(), name='editar_tarea'),
     path('editar_tarea/<int:pk>', views.actualizarTarea, name='editar_tarea'),
+    path('calendario', views.calendario, name='calendario'),
 ]
