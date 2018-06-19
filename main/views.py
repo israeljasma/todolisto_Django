@@ -18,6 +18,7 @@ class RegistroUsuario(CreateView):
     form_class = RegistroForm
     success_url = reverse_lazy('login')
 
+@method_decorator(login_required, name='get')
 class TareaUpdate(UpdateView):
     model = Tarea
     form_class = TareaUpdateForm
