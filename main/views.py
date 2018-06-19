@@ -32,6 +32,10 @@ class TareaDelete(DeleteView):
     success_url = reverse_lazy('tareas')
 
 @login_required()
+def calendario(request):
+    return render(request, 'calendario.html')
+
+@login_required()
 def index(request):
     return render(request, 'home.html')
 
