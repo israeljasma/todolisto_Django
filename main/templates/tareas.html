@@ -19,6 +19,16 @@
                                 <textarea class="form-control" name="descripcion_tarea" id="exampleTextarea" rows="3" required></textarea>
                             </div>
                             <div>
+                                <label for="descripcion">Tipo de tarea</label>
+                                <select class="form-control" name='tipoTarea' id="exampleSelect1" required>
+                                    <option value="" selected disabled hidden>Seleccione un opcion</option>
+                                    {% for e in tipoTarea %}
+                                    <option value={{e.pk}}>{{e.Tipo}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label for="descripcion">Estado de la tarea</label>
                                 <select class="form-control" name='estadoT' id="exampleSelect1" required>
                                     <option value="" selected disabled hidden>Seleccione un opcion</option>
                                     {% for e in estadoTarea %}
