@@ -9,6 +9,7 @@ class Tarea(models.Model):
     fechaInicio = models.DateField("%d-%m-%Y")
     fechaTermino = models.DateField("%d-%m-%Y", null=True, blank=True)
     estadoTarea = models.ForeignKey('EstadoTarea', on_delete = models.DO_NOTHING)
+    tipoTarea = models.ForeignKey('TipoTarea', on_delete = models.DO_NOTHING)
     def __str__(self):
         return (self.titulo)
 
