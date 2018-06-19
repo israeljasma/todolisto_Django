@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, Tarea, EstadoTarea
+from .models import User, Tarea, EstadoTarea, TipoTarea
 from .forms import RegistroForm, TareaUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -38,7 +38,8 @@ def index(request):
 def tareas(request):
     tareas = Tarea.objects.filter(usuario=request.user)
     estadoTarea = EstadoTarea.objects.all()
-    context = {'tareas' : tareas, 'estadoTarea' : estadoTarea}
+    tipoTarea = TipoTarea.objects.all()
+    context = {'tareas' : tareas, 'estadoTarea' : estadoTarea, 'tipoTarea': tipoTarea}
     # tareas = Tarea.objects.all()
     return render(request, 'tareas.html', context=context)
 
