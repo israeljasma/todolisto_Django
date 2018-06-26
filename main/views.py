@@ -73,9 +73,3 @@ def actualizarTarea(request, pk):
             form.save()
         return redirect('tareas')
     return render(request, 'editar_tarea.html', {'form':form})
-
-@login_required() 
-def eliminar_tarea(request, pk): 
-    tarea = Tarea.objects.get(pk=pk) 
-    tarea.delete() 
-    return redirect('tareas') 
