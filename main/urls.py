@@ -9,9 +9,9 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('tareas', views.tareas, name='tareas'),
     path('crear_tarea', views.crear_tarea, name='crear_tarea'),
-    path('<int:pk>', views.eliminar_tarea, name='eliminar_tarea'),
+    path('<int:pk>', views.TareaDelete.as_view(), name='eliminar_tarea'),
     path('registrar', views.RegistroUsuario.as_view(), name='registrar'),
     # path('editar_tarea/<int:pk>', views.TareaUpdate.as_view(), name='editar_tarea'),
     path('editar_tarea/<int:pk>', views.actualizarTarea, name='editar_tarea'),
-    path('calendario', views.calendario, name='calendario'),
+    path('calendario0', views.calendario, name='calendario'),
 ]

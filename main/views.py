@@ -28,7 +28,7 @@ class TareaUpdate(UpdateView):
 @method_decorator(login_required, name='get')
 class TareaDelete(DeleteView):
     model = Tarea
-    template_name = 'tareas.html'
+    template_name = 'confirm_delete.html'
     success_url = reverse_lazy('tareas')
 
 @login_required()
