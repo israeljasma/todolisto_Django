@@ -33,7 +33,8 @@ class TareaDelete(DeleteView):
 
 @login_required()
 def calendario(request):
-    return render(request, 'calendario.html')
+    tareas = Tarea.objects.filter(usuario=request.user)
+    return render(request, "calendario.html", { 'tareas' : tareas })
 
 @login_required()
 def index(request):
