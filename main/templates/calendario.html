@@ -17,6 +17,8 @@
                         {
                 title: '{{ t.titulo }}',
                 start: '{{ t.fechaInicio }}',
+                end:   '{{ t.fechaTermino }}',
+                url    : '{% url 'detalles_tarea' t.id %}'
             },
             {% endfor %}
                 ]
