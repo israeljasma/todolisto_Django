@@ -8,10 +8,11 @@ urlpatterns = [
     path('home', views.index, name='home'),
     path('', views.index, name='home'),
     path('tareas', views.tareas, name='tareas'),
-    path('crear_tarea', views.crear_tarea, name='crear_tarea'),
+    path('creartarea', views.crear_tarea, name='crear_tarea'),
     path('<int:pk>', views.TareaDelete.as_view(), name='eliminar_tarea'),
     path('register', views.RegistroUsuario.as_view(), name='register'),
     # path('editar_tarea/<int:pk>', views.TareaUpdate.as_view(), name='editar_tarea'),
-    path('editar_tarea/<int:pk>', views.actualizarTarea, name='editar_tarea'),
+    path('editartarea/<int:pk>', views.actualizarTarea, name='editar_tarea'),
     path('calendario0', views.calendario, name='calendario'),
+    path('detallestarea/<int:pk>', views.TareaDetail.as_view(), name='detalles_tarea'),
 ]
