@@ -3,7 +3,7 @@ from .models import User, Tarea, EstadoTarea, TipoTarea
 from .forms import RegistroForm, TareaUpdateForm
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from django.urls import reverse_lazy
 import time
 
@@ -30,6 +30,10 @@ class TareaDelete(DeleteView):
     model = Tarea
     template_name = 'confirm_delete.html'
     success_url = reverse_lazy('tareas')
+
+class TareaDetail(DetailView):
+    model = Tarea
+    template_name = 'detalles_tarea.html'
 
 @login_required()
 def calendario(request):
