@@ -30,7 +30,8 @@ class TareaDelete(DeleteView):
     model = Tarea
     template_name = 'confirm_delete.html'
     success_url = reverse_lazy('tareas')
-
+    
+@method_decorator(login_required, name='get')
 class TareaDetail(DetailView):
     model = Tarea
     template_name = 'detalles_tarea.html'
