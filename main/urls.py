@@ -13,6 +13,6 @@ urlpatterns = [
     path('register', views.RegistroUsuario.as_view(), name='register'),
     # path('editar_tarea/<int:pk>', views.TareaUpdate.as_view(), name='editar_tarea'),
     path('editartarea/<int:pk>', views.actualizarTarea, name='editar_tarea'),
-    path('calendario0', views.calendario, name='calendario'),
+    path('calendario', views.calendario, name='calendario'),
     path('detallestarea/<int:pk>', views.TareaDetail.as_view(), name='detalles_tarea'),
 ]
