@@ -47,10 +47,17 @@ def index(request):
 
 @login_required()
 def tareas(request):
-    tareas = Tarea.objects.filter(usuario=request.user)
-    estadoTarea = EstadoTarea.objects.all()
-    tipoTarea = TipoTarea.objects.all()
-    context = {'tareas' : tareas, 'estadoTarea' : estadoTarea, 'tipoTarea': tipoTarea}
+    if User.is_staff:
+        tareas = Tarea.objects.all()
+        estadoTarea = EstadoTarea.objects.all()
+        tipoTarea = TipoTarea.objects.all()
+        context = {'tareas' : tareas, 'estadoTarea' : estadoTarea, 'tipoTarea': tipoTarea}
+    else:
+        
+        tareas = Tarea.objects.filter(usuario=request.user)
+        estadoTarea = EstadoTarea.objects.all()
+        tipoTarea = TipoTarea.objects.all()
+        context = {'tareas' : tareas, 'estadoTarea' : estadoTarea, 'tipoTarea': tipoTarea}
     # tareas = Tarea.objects.all()
     return render(request, 'tareas.html', context=context)
 
