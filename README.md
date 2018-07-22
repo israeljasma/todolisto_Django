@@ -1,4 +1,9 @@
 # todolisto_Django
+## Integrantes
+
+* Israel Jasma
+* Christopher Patirro
+
 ## Respecto a los requerimientos:
 
 ### Es necesario tener instalar:
@@ -6,6 +11,7 @@
 * Framework Django en su version 2.0
 * XAMPP en su version 3.2.2
 * Python 3
+
 ### Sistema Operativo:
 
 * Windows 10
